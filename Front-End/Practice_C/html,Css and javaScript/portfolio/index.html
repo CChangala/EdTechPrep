@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang ="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content = "IE-edge"> <!--Compatible and ignoring upates or old versions-->
+        <meta name ="viewport" content = "width=device-width,initial-scale=1.0"> <!--This is imp for scaling the page asper device-->
+        <title>Document</title>
+        <link rel ="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div id ="header"> <!--id is used as unique attribute for a element, referring to any style-->
+            <div class="container"> <!--class can be used in different elements-->
+                <nav>
+                    <img src="images/logo.png" class = "logo">
+                    <ul>
+                        <li><a href="">Home</a></li>
+                        <li><a href="">About</a></li>
+                        <li><a href="">Timeline</a></li>
+                        <li><a href="">Projects</a></li>
+                        <li><a href="">Contact</a></li>
+                    </ul>
+                </nav>
+                <div class="header-text">
+                    <p>Software Developer</p>
+                    <h1>Hi, I'm Chaitanya Changala.</h1>
+                </div>
+
+            </div>
+            
+        </div>
+        <!-------about--------------->
+        <div id="about">
+            <div class="container">
+                <div class="row">
+                    <div class="about-col-1">
+                        <img src="images/profilepic.png">
+                    </div>
+                    <div class="about-col-2">
+                        <h1 class="sub-title">About Me</h1>
+                        <p>I’m Chaitanya Changala, currently pursuing a Master’s in Computer Science at the University of Massachusetts, Amherst, with a GPA of 4.0.
+                            I graduated with a Bachelor’s in Computer Science and Engineering from Chaitanya Bharathi Institute of Technology. 
+                        </p>
+                        <div class="tab-titles">
+                            <p class="tab-links active-link" onclick ="opentab('skills')">Skills</p>
+                            <p class="tab-links" onclick ="opentab('experience')">Expreience</p>
+                            <p class="tab-links" onclick ="opentab('education')">Education</p>
+                        </div>
+                        <div class="tab-contents active-tab" id="skills">
+                            <ul>
+                                <li><span>Frontend</span><br>HTML,CSS,Javascript, React.js, XML, Redux</li>
+                                <li><span>Backend</span><br>SpringBoot, Spring MVC, DBMS, MongoDB, SQL, Elastic Search, NOSQL</li>
+                                <li><span>Tools</span><br>Jenkins,Git,Kubernets, PostMan</li>
+
+                            </ul>
+                        </div>
+                        <div class="tab-contents" id="experience">
+                            <ul>
+                                <li><span>May 2022 - Aug 2023 </span><br>Software Engineer at GAP Inc.</li>
+                                <li><span>Jan 2022 - Apirl 2022</span><br>Program Analyst Trainee at Cognizant</li>
+                                <li><span>May 2021 - July 2021</span><br>Software Engineer Student Intern at CBIT Technical club</li>
+                            </ul>
+                        </div>
+                        <div class="tab-contents" id="education">
+                            <ul>
+                                <li><span>2025 </span><br>Master’s in Computer Science at UMASS Amherst</li>
+                                <li><span>2022</span><br>Bachelor’sin Computer at CBIT</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!----------------Scripting------------------->
+        <script>
+            var tablinks = document.getElementsByClassName("tab-links");
+            var tabcontents = document.getElementsByClassName("tab-contents");
+            function opentab(tabname){
+                for(tablink of tablinks){
+                    tablink.classList.remove("active-link");
+                }
+                for(tabcontent of tabcontents){
+                    tabcontent.classList.remove("active-tab");
+                }
+                event.currentTarget.classList.add("active-link");
+                document.getElementById(tabname).classList.add("active-tab");
+            }
+        </script>
+
+    </body>
+
+
+</html>
