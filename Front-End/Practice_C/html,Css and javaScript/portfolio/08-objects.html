@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <!--An object groups multiple values together. It has property and value of the elements in it - through which we can access the value-->
+    <head>
+        <title>
+            Objects
+        </title>
+    </head>
+    <body>
+        <script>
+            //objects make our code more organized, instead of bunch of varaibles. we can relate to real word objects like different objects might have different properties.
+            const product ={
+                name: 'socks',
+                price: 1090
+            };
+            //can add a property whenever we need.
+            product.newProperty = "I'm new";
+            //or delete it
+            delete product.price;
+            product.price = 1090;
+
+            /*
+            */
+           const product2 = {
+            name : 'shirt',
+            //nested objects - where we can also store a function as a property.
+            rating:{
+                stars:4.5,
+                count:87
+            }
+           }
+           console.log(product2.name);
+           console.log(product2['name']);
+           //JSON AND localStorage built in objects.
+           // JSON - JAVASCRIPT OBJECT NOTATION - a format for storing and exchanging data using human-readable text. It is a syntax more understandable hence we use this syntax.
+           //helps us convert javascript object in json format.
+
+           console.log(JSON.stringify(product2));
+          //JSON.PARSE converts it into the original object.
+          //--------------------------------------------------------------------------------------------------
+          //localStorage - localStorage stores the page data in local storage and won't change even after refreshing the page.
+          //localStorage.setItem() //- used to set an item and local storage only supports strings.
+
+          /*----------------------------------------------------------------------------------------------
+           
+            - string.length, string.toUpperCase, string.toLowerCase: These functions work because js autoboxes the vatiables in objects except for null and undefined.
+            - objects are only reference the properties, though we can't change the reference to the object we can always change properties which it's pointing to.
+            - objects cannot be compared directly.
+            - Example:
+                const object3 ={
+                    message: "Hello"
+                };
+                const object ={
+                message: "Hello"
+                };
+
+                const object2 = object;
+                
+                object3 and object are not equal even though their values are same, as they are pointing to two different memory locations. whereas object2 and object are pointing to the same memory location. 
+            - To get a property out of an object and storing it in a varible with same name we can use const {name} = obj - It gets name property from obj and saves it in the name variable.
+            - Short hand method syntax in object method(){
+            }. Can directly be accessed using obj.method();
+          */
+
+        </script>
+    </body>
+</html>
