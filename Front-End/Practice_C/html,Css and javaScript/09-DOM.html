@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            DOM
+        </title>
+    </head>
+    <!--
+        Document is a built in object.
+        Document object Model:  is because document object models/represents the webpage.
+        DOM combines html and css together gives js full control of the webpage.
+    
+    -->
+    <body>
+        <button>Hello</button>
+        <button class = "js-class">Second button </button>
+        <script>
+            console.log(document.title);
+            console.log(document.body); // gets the entrie html into the javascript.
+            //now that the body is just an object in the js script we can use the methods and other properties in it.
+            document.querySelector('button');//lets is get any element from the page
+            //every html element has a property of innerehtml which lets us control the contents of the element.
+            //but how to get the rest of the elements? We can either use class or id. To get the other elements give a html attr class and we can call it using the query selector.
+            const buttonElement = document.querySelector('.js-class');
+            console.log(buttonElement);
+        </script>
+    </body>
+</html>

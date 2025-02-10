@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            DOM Projects
+        </title>
+        <style>
+           .subscribe-button{
+                background-color: black;
+                border:none;
+                color: white;
+                padding: 10px 12px;
+                font-weight: bold;
+                border-radius: 50px;
+                cursor: pointer;
+           }
+           .is_subscribed{
+            background-color: gray;
+            color:black;
+           }
+        </style>
+    </head>
+    <body>
+        <p>YouTube Subscribe Button</p>
+        <button onclick="change()" class="subscribe-button js-button-subscribe">Subscribe</button>
+        <p>Amazon Shipping Calculator</p>
+        <input placeholder="cost of order" class = 'js-cost-input' onkeydown="
+        console.log(event.key);
+            if(event.key === 'Enter'){
+                calculateTotal();
+            }">
+        <button onclick="calculateTotal()">Calculate</button>
+        <p class = 'js-total-cost'></p>
+        <script>
+            function calculateTotal(){
+                const input = document.querySelector('.js-cost-input'); //for input elements we can use a differnt function called value.
+                let cost = Number(input.value);
+                if(cost < 40){
+                    cost = cost + 10;
+                }
+
+                document.querySelector('.js-total-cost').innerHTML = `The total cost with shipping is: $${cost}`;
+            }
+            function change(){
+                const button = document.querySelector('.js-button-subscribe');
+                console.log(button.innerText);
+                if(button.innerText === 'Subscribe'){ //we can also use innerText to only get text and not all the other spaces or anything
+                    button.innerText = 'Subscribed';
+                    button.classList.add('is_subscribed');
+                }
+                else{
+                    button.innerText = 'Subscribe';
+                    button.classList.remove('is_subscribed')
+                }
+            }
+        </script>
+    </body>
+</html>
