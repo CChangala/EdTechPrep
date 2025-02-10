@@ -4,6 +4,7 @@
 - Front- end : React.js, Redux, and Tailwind CSS.
     - Html 
     - CSS
+    - JavaScript
     - React
     - Redux
 - Back-end: Spring Boot, MongoDB.
