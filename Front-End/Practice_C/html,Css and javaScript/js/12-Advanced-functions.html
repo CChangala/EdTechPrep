@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+         <title>Advance Functions</title>   
+    </head>
+    <body>
+        
+        <script>
+            //functions are also values, which means just like a value we can store the function in the variable.
+            //but we can hoist the below function.
+            const func = function callMe(){
+                console.log("hii");
+            }
+            func();
+            //as long as we have a way to call it we can use it without name - called as anonymous functions.
+            const func2 = function(){
+            console.log("Hii, I'm an anonymous function");
+            }
+            func2();
+            //we can use setTimeOut in js using functions- that allows us to run a code when we set timer.
+            setTimeout(function(){
+                console.log("setTimeOut");
+            }, 3000);
+            console.log('next Line');
+            //async code is won't wait for the code and goes to next line.
+            //setInterval - run this chunk every 3 secs
+            setInterval(function(){
+                console.log("set Interval");
+            }, 3000);
+            console.log('after interval');
+            //loop through an array
+
+            const arr = ['make dinner', 'go out', 'kick ass'];
+            arr.forEach(function(value){
+                console.log(value);
+            });
+
+            //arrow functions: 
+            //if there are only one param we can remove the () or if only one line we can write in single line.
+            const arrowFunction = ()=>{
+                console.log("I'm an arrow function");
+            }
+            arrowFunction();
+
+            const arr2 = [1,2,3,4,5];
+            arr2.filter((value,index)=>{
+                if(value%2==0){
+                    arr2.splice(index,1);
+                }
+            })
+            console.log(arr2);
+            
+        </script>
+        
+    </body>
+</html>
