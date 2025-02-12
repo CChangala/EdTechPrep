@@ -20,4 +20,6 @@
 - let is block-scoped
 - const is block-scoped
 # Object - look in 06- objects.
+- clicks and keydown are called events and onclick and onkeydown is known as event listeners(scrolling).
+
 

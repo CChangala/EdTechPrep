@@ -4,38 +4,80 @@
         <title>
             Rock-Paper-Sissors
         </title>
+        <style>
+            body{
+                background-color: black;
+                color:white;
+
+            }
+            .title{
+                font-family: Arial, Helvetica, sans-serif;
+                font-weight:bold;
+                font-size: 40px;
+            }
+            .move-icon{
+                height: 50px;
+            }
+            .move-button{
+                background-color: transparent;
+                border-radius: 50px;
+                border:2px solid white;
+                width:100px;
+                height: 100px;
+                margin-right: 10px;
+                cursor: pointer;
+            }
+            .result{
+                font-weight:bold;
+                margin-top: 50px;
+                font-size:30px
+            }
+            .reset-score-button{
+                padding:10px 10px;
+                border: none;
+                background-color: white;
+            }
+            .moves{
+                height: 50px;
+            }
+        </style>
 
     </head>
     <body>
-        <p>Rock Paper Scissors</p>
-        <button onclick="
+        <p class = 'title'>Rock Paper Scissors</p>
+        <button class = "move-button" onclick="
             pickComputerMove();
             playGame('Rock');
             "
-        >Rock</button>
-        <button onclick="
+        ><img class='move-icon' src="images/Rock.png"></button>
+        <button class = "move-button"  onclick="
             pickComputerMove();
             playGame('Paper');
-        ">Paper</button>
-        <button onclick="
+        "><img class='move-icon' src="images/Paper.png"></button>
+        <button class = "move-button"  onclick="
             pickComputerMove();
             playGame('Scissors');
-        ">Scissors</button>
-        <button onclick ="localStorage.removeItem('score')
-        alert(`Games Reset!
-        Wins :${score.wins},Losses:${score.loss},Ties:${score.ties}`)">
+        "><img class='move-icon' src="images/Scissors.png"></button>
+        <p class='result js-result'></p>
+        <p class = 'js-move'></p>
+        <p class ='js-score' ></p>
+        <button class ='reset-score-button' onclick ="resetButton()">
             Reset Score
         </button>
         <script>
             
-            let score =JSON.parse(localStorage.getItem('score'));
-            if(score === null){
-                score ={
+            const score =JSON.parse(localStorage.getItem('score')) ||
+                {
                     wins: 0,
                     loss: 0,
                     ties: 0
-                }
+                };
+            updateScoreElement();
+            function updateScoreElement(){
+                document.querySelector('.js-score')
+            .innerHTML = `Score - Wins : ${score.wins}, Losses : ${score.loss}, Ties : ${score.ties}`;
             }
+            
             function playGame(playersMove){
                 let result = '';
                 if(playersMove === 'Paper'){
@@ -71,6 +113,7 @@
                         result = 'Wins';
                     }
                 }
+                document.querySelector('.js-result').innerHTML = `Player ${result}`;
                 if(result === 'Ties'){
                     score.ties += 1; 
                 }
@@ -80,8 +123,9 @@
                 else{
                     score.wins += 1;
                 }
-                alert(`Player plays ${playersMove}. Computer plays ${computer_move} . Player ${result} !!! \n Wins :${score.wins},Losses:${score.loss},Ties:${score.ties}`)
+                document.querySelector('.js-move').innerHTML = `Player plays <img class='move-icon' src="images/${playersMove}.png"> Computer plays <img class='move-icon' src="images/${playersMove}.png">`;
                 localStorage.setItem('score',JSON.stringify(score));
+                updateScoreElement();
             }
             let computer_move = '';
             function pickComputerMove(){
@@ -95,6 +139,16 @@
                 else if(randomNumber>=2/3 && randomNumber<1){
                     computer_move = 'Scissors';
                 }
+            }
+            function resetButton(){
+                score.wins = 0;
+                score.loss = 0;
+                score.ties = 0;
+                localStorage.removeItem('score');
+                updateScoreElement();
+                document.querySelector('.js-move').innerHTML = ``;
+                document.querySelector('.js-result').innerHTML = ``;
+
             }
         </script>
     </body>
